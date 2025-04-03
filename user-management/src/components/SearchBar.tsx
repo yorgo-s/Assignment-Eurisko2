@@ -8,11 +8,11 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch, theme }) => {
   return (
-    <div className="mt-4">
+    <div className="mt-4 w-full">
       <input
         type="text"
         placeholder="Search users..."
-        className={`w-full md:w-64 px-4 py-2 border ${
+        className={`w-full sm:w-64 md:w-72 lg:w-80 px-4 py-2 border ${
           theme === "dark"
             ? "bg-gray-700 border-gray-600 text-white placeholder-gray-400"
             : "bg-white border-gray-300 text-gray-900"

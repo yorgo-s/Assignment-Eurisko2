@@ -1,39 +1,3 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
-
 import React, { useState, useEffect } from "react";
 import UserCard from "./components/UserCard";
 import Header from "./components/Header";
@@ -184,12 +148,12 @@ function App() {
   if (!isLoggedIn) {
     return (
       <div
-        className={`min-h-screen flex items-center justify-center ${
+        className={`min-h-screen flex items-center justify-center p-4 ${
           theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-100"
         }`}
       >
         <div
-          className={`p-8 rounded-lg shadow-md ${
+          className={`p-6 sm:p-8 rounded-lg shadow-md max-w-md w-full ${
             theme === "dark" ? "bg-gray-700" : "bg-white"
           }`}
         >
@@ -197,7 +161,7 @@ function App() {
           <p className="mb-6">You have been logged out.</p>
           <button
             onClick={handleLogin}
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200"
+            className="w-full bg-[#3251D0] text-white py-2 rounded hover:bg-[#3251D0] transition duration-200"
           >
             Log Back In
           </button>
@@ -228,18 +192,26 @@ function App() {
         onToggleTheme={toggleTheme}
         theme={theme}
       />
-      <main className="container mx-auto px-4 py-6">
+      <main className="container mx-auto px-4 py-4 sm:py-6">
         <SearchBar onSearch={handleSearch} theme={theme} />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-          {filteredUsers.map((user) => (
-            <UserCard
-              key={user.id}
-              user={user}
-              onDelete={() => handleDelete(user.id)}
-              onEdit={() => handleEditUser(user)}
-              theme={theme}
-            />
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mt-4 sm:mt-6">
+          {filteredUsers.length > 0 ? (
+            filteredUsers.map((user) => (
+              <UserCard
+                key={user.id}
+                user={user}
+                onDelete={() => handleDelete(user.id)}
+                onEdit={() => handleEditUser(user)}
+                theme={theme}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-8">
+              <p className="text-lg">
+                No users found matching your search criteria.
+              </p>
+            </div>
+          )}
         </div>
       </main>
 

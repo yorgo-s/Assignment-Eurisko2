@@ -17,31 +17,31 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header
       className={`${
-        theme === "dark" ? "bg-blue-800" : "bg-blue-600"
-      } text-white py-4 px-6 flex justify-between items-center`}
+        theme === "dark" ? "bg-[#3251D0]" : "bg-[#3251D0]"
+      } text-white py-4 px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0`}
     >
       <h1 className="text-xl font-semibold">User Management</h1>
-      <div className="flex space-x-2">
+      <div className="flex flex-wrap justify-center gap-2">
         <button
           className={`${
             theme === "dark"
               ? "bg-gray-700 hover:bg-gray-600"
               : "bg-white hover:bg-gray-100"
           } ${
-            theme === "dark" ? "text-white" : "text-blue-600"
-          } px-4 py-2 rounded font-medium transition-colors`}
+            theme === "dark" ? "text-white" : "text-[#3251D0]"
+          } px-3 sm:px-4 py-2 rounded font-medium transition-colors`}
           onClick={onCreateUser}
         >
           Create User
         </button>
         <button
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded font-medium transition-colors"
+          className="bg-red-500 hover:bg-red-600 text-white px-3 sm:px-4 py-2 rounded font-medium transition-colors"
           onClick={onLogout}
         >
           Logout
         </button>
         <button
-          className="ml-2 text-white p-2 rounded hover:bg-blue-700 transition-colors"
+          className="text-white p-2 rounded hover:bg-[#3251D0] transition-colors"
           onClick={onToggleTheme}
           aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
         >

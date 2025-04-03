@@ -18,13 +18,13 @@ const UserCard: React.FC<UserCardProps> = ({
     <div
       className={`${
         theme === "dark" ? "bg-gray-700" : "bg-white"
-      } rounded-lg shadow p-6`}
+      } rounded-lg shadow p-4 sm:p-6 transition-shadow hover:shadow-md`}
     >
-      <div className="flex items-center mb-4">
-        <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg">
+      <div className="flex flex-col sm:flex-row sm:items-center mb-4 gap-3">
+        <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg shrink-0">
           {user.initials}
         </div>
-        <div className="ml-4">
+        <div className="sm:ml-4">
           <h2 className="text-lg font-semibold">{user.name}</h2>
           <p
             className={`${
@@ -58,13 +58,13 @@ const UserCard: React.FC<UserCardProps> = ({
       </div>
       <div className="flex justify-end space-x-2">
         <button
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1 rounded text-sm transition-colors"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-1 rounded text-sm transition-colors"
           onClick={onEdit}
         >
           Edit
         </button>
         <button
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded text-sm transition-colors"
+          className="bg-red-500 hover:bg-red-600 text-white px-3 sm:px-4 py-1 rounded text-sm transition-colors"
           onClick={onDelete}
         >
           Delete
